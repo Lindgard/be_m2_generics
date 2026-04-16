@@ -1,0 +1,1 @@
+namespace be_m2_generics.Models;
