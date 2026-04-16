@@ -1,6 +1,6 @@
 namespace be_m2_generics.Interfaces;
 
-public interface IInventoryService<T>
+public interface IStorageService
 {
     //* AddItem(T item);
     //* DeleteItem(T item);

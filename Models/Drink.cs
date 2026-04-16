@@ -4,6 +4,7 @@ namespace be_m2_generics.Models;
 
 public class Drink<T>
 {
-    string Name { get; set; } = "";
-    int Amount { get; set; }
+    public string name { get; set; } = "";
+    public int amount { get; set; }
+    public string category { get; set; } = "";
 }
