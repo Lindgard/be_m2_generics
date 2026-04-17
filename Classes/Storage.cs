@@ -1,18 +1,26 @@
-using be_m2_generics.Interfaces;
-
 namespace be_m2_generics.Classes;
 
 
 public class Storage<T>(StorageTypes storageTypes)
 {
-    private Storage<T> storage = new(); //? useful or pointless?
+    private List<T> items = new(); //? useful or pointless?
 
     //TODO start AddItem method
-    //? IStorageService.AddItem<T>
-    //? _storage.AddItem(T item) 
-    //? _storage.Push()
+    public void AddItem(T item)
+    {
+        items.Add(item);
+    }
+
     //TODO RETURN IENUMERABLE<T> on GetallItems method
-    //* _storage.GetAllItems(T item)
-    //* _storage.CountItems()
-    //* _storage.RemoveItem() //* _storage.Pop();
+    public IEnumerable<T> GetAllItems()
+    {
+        return items;
+    }
+
+    public int CountItems()
+    {
+        //* no clue
+    };
+
+    //* RemoveItem method 
 }

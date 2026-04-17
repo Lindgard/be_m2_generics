@@ -1,5 +1,6 @@
 using be_m2_generics.Classes;
 using be_m2_generics.Interfaces;
+using be_m2_generics.Models;
 
 namespace be_m2_generics.Services;
 
@@ -8,7 +9,7 @@ public class StorageService<T> : IStorageService<T>
     Storage<T> storage;
     public void AddItem(T item)
     {
-        throw new NotImplementedException();
+        storage.AddItem();
     }
 
     public int CountItems(T item)
