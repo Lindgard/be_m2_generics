@@ -1,11 +1,16 @@
+using be_m2_generics.Interfaces;
 namespace be_m2_generics.Classes;
 
 
-public class Storage<T>(StorageTypes storageTypes)
+public class Storage<T> : IStorageService<T>
 {
     private List<T> items = new();
-    private StorageTypes storageType = storageTypes;
+    private StorageTypes storageType;
 
+    public Storage(StorageTypes storageType)
+    {
+        this.storageType = storageType;
+    }
     //TODO start AddItem method
     public void AddItem(T item)
     {

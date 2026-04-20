@@ -4,6 +4,6 @@ public interface IStorageService<T>
 {
     void AddItem(T item);
     void RemoveItem(T item);
-    int CountItems(T item);
-    void GetAllItems(T item);
+    int CountItems();
+    IEnumerable<T> GetAllItems();
 }
