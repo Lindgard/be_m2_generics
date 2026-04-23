@@ -1,10 +1,12 @@
 using System.Dynamic;
+using be_m2_generics.Classes;
 
 namespace be_m2_generics.Models;
 
-public class Drink<T>
+public class Drink
 {
-    public string name { get; set; } = "";
-    public int weight { get; set; }
-    public string category { get; set; } = "";
+    public string Name { get; set; } = "";
+    public double Volume { get; set; }
+    public string Category { get; set; } = "";
+    public StorageTypes DrinkCategory { get; set; }
 }

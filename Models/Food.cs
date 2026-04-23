@@ -1,8 +1,9 @@
-namespace be_m2_generics.Models;
+using be_m2_generics.Classes;
 
-public class Food<T>
+public class Food
 {
-    public string name { get; set; } = "";
-    public int weight { get; set; }
-    public string category { get; set; } = "";
+    public string Name { get; set; } = "";
+    public int Weight { get; set; }
+    public string Category { get; set; } = "";
+    public StorageTypes FoodCategory { get; set; }
 }
