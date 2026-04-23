@@ -2,7 +2,7 @@ using be_m2_generics.Interfaces;
 namespace be_m2_generics.Classes;
 
 
-public class Storage<T> : IStorageService<T>
+public class Storage<T> : IStorage<T>
 {
     private List<T> items = new();
     private StorageTypes storageType;
@@ -11,13 +11,11 @@ public class Storage<T> : IStorageService<T>
     {
         this.storageType = storageType;
     }
-    //TODO start AddItem method
     public void AddItem(T item)
     {
         items.Add(item);
     }
 
-    //TODO RETURN IENUMERABLE<T> on GetallItems method
     public IEnumerable<T> GetAllItems()
     {
         return items;
