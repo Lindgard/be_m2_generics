@@ -87,5 +87,31 @@ public class GenericsTests
     {
         //* Arrange
         var storage = new Storage<string>(StorageTypes.DrinkCategory);
+
+        //* Act
+        foreach (var drink in drinks)
+        {
+            storage.AddItem(drink);
+        }
+
+        //* Assert
+        Assert.Equal(expectedCount, storage.CountItems());
+    }
+
+    [Theory]
+    [InlineData(1)]
+    [InlineData(42)]
+    [InlineData(-5)]
+    [InlineData(0)]
+    public void AddItem_WithIntegerType_ShouldIncreaseCount(int value)
+    {
+        //* Arrange
+        var storage = new Storage<int>(StorageTypes.DrinkCategory);
+
+        //* Act
+        storage.AddItem(value);
+
+        //* Assert
+        Assert.Equal(1, storage.CountItems());
     }
 }
