@@ -1,10 +1,91 @@
-﻿namespace be_m2_generics.Tests;
+﻿using be_m2_generics.Interfaces;
+using be_m2_generics.Classes;
+using Xunit;
+
+namespace be_m2_generics.Tests;
 
 public class GenericsTests
 {
     [Fact]
-    public void Test1()
+    public void NewStorage_CountShouldBeZero()
     {
+        //* Arrange & Act
+        var storage = new Storage<string>(StorageTypes.DrinkCategory);
 
+        //* Assert
+        Assert.Equal(0, storage.CountItems());
+    }
+    [Fact]
+    public void AddItem_ShouldIncreaseCount()
+    {
+        //* Arrange
+        var storage = new Storage<string>(StorageTypes.DrinkCategory);
+
+        //* Act
+        storage.AddItem("Coca Cola");
+
+        //* Assert
+        Assert.Equal(1, storage.CountItems());
+    }
+
+    [Fact]
+    public void RemoveItem_ShouldDecreaseCount()
+    {
+        //* Arrange
+        var storage = new Storage<string>(StorageTypes.DrinkCategory);
+        storage.AddItem("Coca Cola");
+
+        //* Act
+        storage.RemoveItem("Coca Cola");
+
+        //* Assert
+        Assert.Equal(0, storage.CountItems());
+    }
+
+    [Fact]
+    public void CountItems_ShouldReturnCorrectCount()
+    {
+        //* Arrange
+        var storage = new Storage<string>(StorageTypes.DrinkCategory);
+        storage.AddItem("Coca Cola");
+        storage.AddItem("Coffee");
+
+        //* Act
+        var count = storage.CountItems();
+
+        //* Assert
+        Assert.Equal(2, count);
+    }
+
+    // ======================================
+    // [Theory] Data-driven tests
+    // ======================================
+
+    [Theory]
+    [InlineData("Coca Cola")]
+    [InlineData("Coffee")]
+    [InlineData("Tea")]
+    [InlineData("Water")]
+    public void AddItem_WithVariousDrinks_ShouldIncreaseCountToOne(string drink)
+    {
+        //* Arrange
+        var storage = new Storage<string>(StorageTypes.DrinkCategory);
+
+        //* Act
+        storage.AddItem(drink);
+
+        //* Assert
+        Assert.Equal(1, storage.CountItems());
+    }
+
+    [Theory]
+    [InlineData(new[] { "Coca Cola" }, 1)]
+    [InlineData(new[] { "Coca Cola", "Coffee" }, 2)]
+    [InlineData(new[] { "Coca Cola", "Coffee", "Tea" }, 3)]
+    [InlineData(new[] { "Coca Cola", "Coffee", "Tea", "Water" }, 4)]
+    public void AddMultipleItems_CountShouldMatchNumberOfItems(string[] drinks, int expectedCount)
+    {
+        //* Arrange
+        var storage = new Storage<string>(StorageTypes.DrinkCategory);
     }
 }
