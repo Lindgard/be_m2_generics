@@ -12,6 +12,11 @@ public class Storage<T> : IStorage<T>
     }
     public void AddItem(T item)
     {
+        if (item == null)
+        {
+            throw new ArgumentNullException(nameof(item), "Item cannot be null.");
+        }
+
         items.Add(item);
     }
 
