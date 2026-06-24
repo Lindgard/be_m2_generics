@@ -175,4 +175,14 @@ public class GenericsTests
         //* Act & Assert
         Assert.IsAssignableFrom<IStorage<string>>(storage);
     }
+
+    [Fact]
+    public void Storage_WithDouble_ShouldImplementIStorage()
+    {
+        //* Arrange
+        var storage = new Storage<double>(StorageTypes.DrinkCategory);
+
+        //* Act & Assert
+        Assert.IsAssignableFrom<IStorage<double>>(storage);
+    }
 }
