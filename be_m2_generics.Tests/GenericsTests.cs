@@ -161,4 +161,18 @@ public class GenericsTests
         //* Assert
         Assert.Equal(1, storage.CountItems());
     }
+
+    // ======================================
+    // Interface-testing
+    // ======================================
+
+    [Fact]
+    public void Storage_WithString_ShouldImplementIStorage()
+    {
+        //* Arrange
+        var storage = new Storage<string>(StorageTypes.DrinkCategory);
+
+        //* Act & Assert
+        Assert.IsAssignableFrom<IStorage<string>>(storage);
+    }
 }
