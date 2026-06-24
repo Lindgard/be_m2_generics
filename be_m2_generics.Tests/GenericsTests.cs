@@ -147,4 +147,18 @@ public class GenericsTests
         //* Assert
         Assert.Equal(1, storage.CountItems());
     }
+
+    [Fact]
+    public void AddItem_WithWeaponModel_ShouldIncreaseCount()
+    {
+        //* Arrange
+        var storage = new Storage<Weapon>(StorageTypes.WeaponsCategory);
+        var weapon = new Weapon { Name = "Sword", Weight = 4.5, Category = "Melee" };
+
+        //* Act
+        storage.AddItem(weapon);
+
+        //* Assert
+        Assert.Equal(1, storage.CountItems());
+    }
 }
