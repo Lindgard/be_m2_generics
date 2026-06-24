@@ -133,4 +133,18 @@ public class GenericsTests
         //* Assert
         Assert.Equal(1, storage.CountItems());
     }
+
+    [Fact]
+    public void AddItem_WithFoodModel_ShouldIncreaseCount()
+    {
+        //* Arrange
+        var storage = new Storage<Food>(StorageTypes.FoodCategory);
+        var food = new Food { Name = "Pizza", Weight = 1.2, Category = "Italian" };
+
+        //* Act
+        storage.AddItem(food);
+
+        //* Assert
+        Assert.Equal(1, storage.CountItems());
+    }
 }
