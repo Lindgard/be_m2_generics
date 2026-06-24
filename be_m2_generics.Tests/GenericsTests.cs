@@ -219,4 +219,14 @@ public class GenericsTests
         //* Act & Assert
         Assert.Throws<InvalidOperationException>(() => storage.RemoveItem("NonExistentItem"));
     }
+
+    [Fact]
+    public void RemoveItem_FromEmptyStorage_ShouldThrowInvalidOperationException()
+    {
+        //* Arrange
+        var storage = new Storage<string>(StorageTypes.DrinkCategory);
+
+        //* Act & Assert
+        Assert.Throws<InvalidOperationException>(() => storage.RemoveItem("Coca Cola"));
+    }
 }
