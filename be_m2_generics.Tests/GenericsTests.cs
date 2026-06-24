@@ -195,4 +195,18 @@ public class GenericsTests
         //* Act & Assert
         Assert.IsAssignableFrom<IStorage<Drink>>(storage);
     }
+
+    //=====================================
+    // Edge Cases - null, duplicate, error handling
+    //=====================================
+
+    [Fact]
+    public void AddItem_NullString_ShouldThrowArgumentNullException()
+    {
+        //* Arrange
+        var storage = new Storage<string>(StorageTypes.DrinkCategory);
+
+        //* Act & Assert
+        Assert.Throws<ArgumentNullException>(() => storage.AddItem(null!));
+    }
 }
