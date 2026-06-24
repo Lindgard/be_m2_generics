@@ -1,5 +1,6 @@
 ﻿using be_m2_generics.Interfaces;
 using be_m2_generics.Classes;
+using be_m2_generics.Models;
 using Xunit;
 
 namespace be_m2_generics.Tests;
@@ -110,6 +111,24 @@ public class GenericsTests
 
         //* Act
         storage.AddItem(value);
+
+        //* Assert
+        Assert.Equal(1, storage.CountItems());
+    }
+
+    // ======================================
+    // A. Models - Drink, Food, Weapon
+    // ======================================
+
+    [Fact]
+    public void AddItem_WithDrinkModel_ShouldIncreaseCount()
+    {
+        //* Arrange
+        var storage = new Storage<Drink>(StorageTypes.DrinkCategory);
+        var drink = new Drink { Name = "Coca Cola", Volume = 0.5, Category = "Soda" };
+
+        //* Act
+        storage.AddItem(drink);
 
         //* Assert
         Assert.Equal(1, storage.CountItems());
