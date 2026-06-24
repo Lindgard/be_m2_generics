@@ -33,6 +33,14 @@ public class Storage<T> : IStorage<T>
     //* RemoveItem method 
     public void RemoveItem(T item)
     {
+        if (item == null)
+        {
+            throw new ArgumentException("Item cannot be null.", nameof(item));
+        }
+        if (!items.Contains(item))
+        {
+            throw new InvalidOperationException("Item does not exist in the storage.");
+        }
         items.Remove(item);
     }
 }
