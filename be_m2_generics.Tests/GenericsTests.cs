@@ -209,4 +209,14 @@ public class GenericsTests
         //* Act & Assert
         Assert.Throws<ArgumentNullException>(() => storage.AddItem(null!));
     }
+
+    [Fact]
+    public void RemoveItem_NonExistentItem_ShouldThrowInvalidOperationException()
+    {
+        //* Arrange
+        var storage = new Storage<string>(StorageTypes.DrinkCategory);
+
+        //* Act & Assert
+        Assert.Throws<InvalidOperationException>(() => storage.RemoveItem("NonExistentItem"));
+    }
 }
