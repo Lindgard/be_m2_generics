@@ -1,6 +1,6 @@
 ﻿namespace be_m2_generics.Tests;
 
-public class UnitTest1
+public class GenericsTests
 {
     [Fact]
     public void Test1()

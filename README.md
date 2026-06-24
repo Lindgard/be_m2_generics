@@ -17,7 +17,8 @@
 
 - [x] Start foundation of base class Storage
 - [x] Define methods in interface
-- [ ] More enums?
+- [ ] Add xUnit tests for Storage.cs
+- [ ] Refactor methods in Storage.cs according to tests
 
 ## Pseudocode
 
